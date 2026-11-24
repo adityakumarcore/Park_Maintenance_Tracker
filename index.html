@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Park Maintenance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div  class="logo">
+      🌳 <span>ParkCare</span>
+    </div>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#parks">Parks</a>
+        <a href="#report">Report Issue</a>
+        <a href="#issues">Track Issues</a>
+    </nav>
+
+    <button class="login-btn"> Login</button>
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="hero-content">
+        <span class="tag">🌱 Better Parks, Better Communities</span>
+
+        <h1>
+            Keep Your <span>Public Parks</span>
+            Clean, Safe & Beautiful
+        </h1>
+
+        <p>
+            Report maintenance problems, track their progress,
+            and help your community create better public spaces.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#report" class="primary-btn">Report an Issue</a>
+            <a href="#issues" class="secondary-btn">Track Issues</a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="park-icon">🌳</div>
+        <h3>Community Powered</h3>
+        <p>
+            Your reports help authorities identify and resolve
+            park maintenance problems faster.
+        </p>
+
+        <div class="mini-stats">
+            <div>
+                <strong>128</strong>
+                <small>Issues</small>
+            </div>
+
+            <div>
+                <strong>96</strong>
+                <small>Resolved</small>
+            </div>
+
+            <div>
+                <strong>18</strong>
+                <small>Parks</small>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="section">
+
+    <div class="section-title">
+        <span>📊 OVERVIEW</span>
+        <h2>Maintenance Dashboard</h2>
+        <p>Monitor park maintenance activities in your community.</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🌳</div>
+            <h3 id="parkCount">18</h3>
+            <p>Total Parks</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📋</div>
+            <h3 id="issueCount">128</h3>
+            <p>Total Issues</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⏳</div>
+            <h3 id="pendingCount">32</h3>
+            <p>Pending Issues</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <h3 id="resolvedCount">96</h3>
+            <p>Resolved Issues</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PARK CATALOGUE -->
+<section id="parks" class="section light">
+
+    <div class="section-title">
+        <span>🌳 PARK CATALOGUE</span>
+        <h2>Explore Public Parks</h2>
+        <p>Find parks and view their maintenance information.</p>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="parkSearch"
+            placeholder="🔍 Search park..."
+            onkeyup="searchParks()"
+        >
+    </div>
+
+    <div class="park-grid" id="parkList">
+
+        <div class="park-card" data-name="central city park">
+            <div class="park-image">🌳</div>
+
+            <div class="park-info">
+                <h3>Lpu park</h3>
+                <p>📍 Main Road, Phagwara</p>
+
+                <div class="park-status good">
+                    ● Well Maintained
+                </div>
+
+                <div class="park-bottom">
+                    <span>👥 1,250 visitors</span>
+                    <span>⭐ 4.6</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="park-card" data-name="green valley park">
+            <div class="park-image green">
+                🌲
+            </div>
+
+            <div class="park-info">
+                <h3>Green Valley Park</h3>
+                <p>📍 Green Valley Road</p>
+
+                <div class="park-status warning">
+                    ● Needs Attention
+                </div>
+
+                <div class="park-bottom">
+                    <span>👥 840 visitors</span>
+                    <span>⭐ 4.2</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="park-card" data-name="children garden">
+            <div class="park-image blue">
+                🛝
+            </div>
+
+            <div class="park-info">
+                <h3>Children's Garden</h3>
+                <p>📍 Lake View Area</p>
+
+                <div class="park-status good">
+                    ● Well Maintained
+                </div>
+
+                <div class="park-bottom">
+                    <span>👥 970 visitors</span>
+                    <span>⭐ 4.8</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="park-card" data-name="sunrise community park">
+            <div class="park-image orange">
+                ☀️
+            </div>
+
+            <div class="park-info">
+                <h3>Sunrise Community Park</h3>
+                <p>📍 Sunrise Colony</p>
+
+                <div class="park-status danger">
+                    ● Maintenance Required
+                </div>
+
+                <div class="park-bottom">
+                    <span>👥 1000 visitors</span>
+                    <span>⭐ 4.3</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REPORT ISSUE -->
+<section id="report" class="section">
+
+    <div class="section-title">
+        <span>📝 REPORT</span>
+        <h2>Report a Park Issue</h2>
+        <p>Help us identify problems that need attention.</p>
+    </div>
+
+    <div class="form-container">
+
+        <form id="issueForm">
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Park Name</label>
+
+                    <select id="parkName" required>
+                        <option value="">Select Park</option>
+                        <option>Lpu park</option>
+                        <option>Green Valley Park</option>
+                        <option>Children's Garden</option>
+                        <option>Sunrise Community Park</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Issue Category</label>
+
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option>Garbage</option>
+                        <option>Broken Equipment</option>
+                        <option>Damaged Pathway</option>
+                        <option>Street Light</option>
+                        <option>Water Supply</option>
+                        <option>Grass / Plants</option>
+                        <option>Safety Issue</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Issue Title</label>
+
+                <input
+                    type="text"
+                    id="issueTitle"
+                    placeholder="Example: Broken bench near playground"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    rows="5"
+                    placeholder="Describe the problem..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>📍 Location</label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter exact location"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label>📷 Upload Photo</label>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        accept="image/*"
+                        onchange="previewImage(event)"
+                    >
+                </div>
+
+            </div>
+
+
+            <div id="imagePreview"></div>
+
+
+            <button type="submit" class="submit-btn">
+                Submit Issue 🚀
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ISSUE TRACKER -->
+<section id="issues" class="section light">
+
+    <div class="section-title">
+        <span>🔎 TRACKING</span>
+        <h2>Track Maintenance Issues</h2>
+        <p>See the current status of reported issues.</p>
+    </div>
+
+
+    <div class="filter-area">
+
+        <input
+            type="text"
+            id="issueSearch"
+            placeholder="🔍 Search issues..."
+            onkeyup="filterIssues()"
+        >
+
+        <select id="statusFilter" onchange="filterIssues()">
+            <option value="all">All Status</option>
+            <option value="reported">Reported</option>
+            <option value="assigned">Assigned</option>
+            <option value="progress">In Progress</option>
+            <option value="resolved">Resolved</option>
+        </select>
+
+    </div>
+
+
+    <div class="issue-list" id="issueList">
+
+        <div class="issue-card" data-status="progress">
+
+            <div class="issue-top">
+                <span class="issue-id">#PK-1024</span>
+                <span class="status progress">In Progress</span>
+            </div>
+
+            <h3>Broken Street Light</h3>
+
+            <p>
+                📍 Lpu park - North Entrance
+            </p>
+
+            <p>
+                💡 Street light has stopped working near the main entrance.
+            </p>
+
+            <div class="progress-line">
+                <div class="step active">
+                    <span>✓</span>
+                    <small>Reported</small>
+                </div>
+
+                <div class="line active"></div>
+
+                <div class="step active">
+                    <span>✓</span>
+                    <small>Assigned</small>
+                </div>
+
+                <div class="line active"></div>
+
+                <div class="step">
+                    <span>3</span>
+                    <small>In Progress</small>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step">
+                    <span>4</span>
+                    <small>Resolved</small>
+                </div>
+            </div>
+
+            <div class="issue-footer">
+                <span>👷 Assigned: Maintenance Team A</span>
+                <span>📅 Oct 5, 2026</span>
+            </div>
+
+        </div>
+
+
+        <div class="issue-card" data-status="resolved">
+
+            <div class="issue-top">
+                <span class="issue-id">#PK-1023</span>
+                <span class="status resolved">Resolved</span>
+            </div>
+
+            <h3>Garbage Overflow</h3>
+
+            <p>
+                📍 Green Valley Park - Playground
+            </p>
+
+            <p>
+                🗑️ Dustbin was overflowing and required immediate cleaning.
+            </p>
+
+            <div class="resolved-box">
+                ✅ Issue resolved
+                <br>
+                <small>Resolution evidence uploaded by maintenance team.</small>
+            </div>
+
+            <div class="feedback">
+                <span>Resident Feedback:</span>
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <div class="issue-footer">
+                <span>👷 Assigned: Cleaning Team</span>
+                <span>📅 Oct 3, 2026</span>
+            </div>
+
+        </div>
+
+
+        <div class="issue-card" data-status="reported">
+
+            <div class="issue-top">
+                <span class="issue-id">#PK-1022</span>
+                <span class="status reported">Reported</span>
+            </div>
+
+            <h3>Damaged Playground Equipment</h3>
+
+            <p>
+                📍 Children's Garden - Playground
+            </p>
+
+            <p>
+                🛝 One of the playground slides is damaged.
+            </p>
+
+            <div class="issue-footer">
+                <span>👷 Not Assigned</span>
+                <span>📅 Oct 2, 2026</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ANALYTICS -->
+<section class="section">
+
+    <div class="section-title">
+        <span>📈 ANALYTICS</span>
+        <h2>Maintenance Analytics</h2>
+        <p>Understand maintenance performance across parks.</p>
+    </div>
+
+
+    <div class="analytics-grid">
+
+        <div class="analytics-card">
+            <h3>Issues by Category</h3>
+
+            <div class="bar">
+                <span>Garbage</span>
+                <div><i style="width:80%"></i></div>
+                <b>42</b>
+            </div>
+
+            <div class="bar">
+                <span>Equipment</span>
+                <div><i style="width:60%"></i></div>
+                <b>31</b>
+            </div>
+
+            <div class="bar">
+                <span>Lighting</span>
+                <div><i style="width:45%"></i></div>
+                <b>22</b>
+            </div>
+
+            <div class="bar">
+                <span>Pathways</span>
+                <div><i style="width:30%"></i></div>
+                <b>15</b>
+            </div>
+
+        </div>
+
+
+        <div class="analytics-card">
+
+            <h3>Resolution Performance</h3>
+
+            <div class="circle">
+                <strong>75%</strong>
+                <span>Resolved</span>
+            </div>
+
+            <p class="center">
+                100 out of 128 reported issues
+                have been successfully resolved.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <h2>🌳 ParkCare</h2>
+            <p>
+                Building cleaner, safer and better
+                public parks through community participation.
+            </p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#parks">Parks</a>
+            <a href="#report">Report Issue</a>
+            <a href="#issues">Track Issue</a>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <p>📧 support@parkcare.com</p>
+            <p>📞 1800-123-456</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ParkCare | Public Park Maintenance Tracker
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
